@@ -1,0 +1,23 @@
+! version= 2.0
+
++ *
+- hi do you want to take your attendance?{topic=attendance}
+
+> topic attendance
++ yes
+- okay could you please enter your name{topic=name}
++ no 
+- okay that's it thanks. leave please!
+< topic
+
+> topic name
++ *
+- <set username=<star>><call>getUsername <star></call>
+< topic
+
+> object getUsername python
+  import utilis
+  user = utilis.save(str(args[0]))
+  return "okay user added"
+< object
+
